@@ -202,6 +202,12 @@ int main(int argc, char* argv[])
 	{
 		pthread_join(sort_threads[i], NULL);
 	}
+
+	// Flush all the remaining data in buffer
+	for (i=0; i<total_buckets; i++)
+	{
+		buckets_v.at(i).final_save_buffer();
+	}
 }
 
 
@@ -223,7 +229,6 @@ void *phase_1_thread(void *args)
 	    {
 	    	next_file = false;
 	    }
-	    
 	    if (next_file)
 	    {
 			file = files->back();
