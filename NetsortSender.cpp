@@ -151,10 +151,15 @@ int main(int argc, char* argv[])
 	// number of partitions equals to the number of nodes, also equals to the number of disks per node
 	int total_nodes		= atoi(argv[1]);	
 	int node_hash_bar = (ceil) (65536 / total_nodes);
-	int total_threads	= atoi(argv[2]);
-	int node_id	= atoi(argv[3]);
-	int port = atoi(argv[4]);
+	int port = atoi(argv[2]);
+	int total_threads	= 1;	// default single thread sending
+	if (argc == 4)
+	{
+		total_threads = atoi(argv[3]);
+	}
 
+	cout << total_threads << "\n";
+	exit(0);
 
 	// Initialize all the sockets and buckets
 	initialize(port);

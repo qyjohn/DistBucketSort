@@ -226,7 +226,9 @@ void *phase_2_thread(void *args)
 					in.read(buffer, size);
 					// Close the file
 					in.close();
-			
+					// Delete the file to save space
+					std::remove(file.c_str()); 
+
 					// We know that each record is 100 bytes 
 					int count = size / 100;
 					int i=0, j=0, start = 0;
