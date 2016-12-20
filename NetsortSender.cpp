@@ -158,9 +158,6 @@ int main(int argc, char* argv[])
 		total_threads = atoi(argv[3]);
 	}
 
-	cout << total_threads << "\n";
-	exit(0);
-
 	// Initialize all the sockets and buckets
 	initialize(port);
 	
